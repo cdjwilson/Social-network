@@ -1,0 +1,25 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<div class="all_post_container">
+    <div id="header_container">
+        <h1 id="header">All Posts</h1>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="post_container">
+            <h4>New Post</h4>
+            <form action="{% url 'post' %}" method="post">
+                {% csrf_token %}
+                <textarea name="content" class="form-control" style="height:100px;" maxlength="999"></textarea>
+                <button class="btn btn-primary" id="post_button">Post</button>
+            </form>
+        </div>
+    {% endif %}
+    <div id="posts">
+
+    </div>
+    <ul class="pagination justify-content-center" style="position: fixed; bottom: 0; width: 100%;">
+        
+    </ul>
+</div>
+{% endblock %}
